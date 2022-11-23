@@ -1,7 +1,6 @@
 import './App.scss'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { publicRoutes } from './routes'
-import Home from './pages/Home';
 
 function App() {
   return (
