@@ -1,10 +1,20 @@
 import React from 'react'
 import './TestComponent.scss'
+import { Card } from 'antd'
+
+const { Meta } = Card;
 
 
 const TestComponent = (props) => {
-  return <div className="TestComponent tw-font-bold tw-text-3xl tw-underline tw-bg-green-500">
-    This is HomePage</div>
+    return <Card
+    hoverable
+    style={{
+      width: 240,
+    }}
+    cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+  >
+    <Meta title="Europe Street beat" description="www.instagram.com" />
+  </Card>
 }
 
 export default TestComponent
