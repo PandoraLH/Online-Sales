@@ -1,0 +1,12 @@
+.Header{
+    background-color: white;
+    z-index: 99999;
+    .RegBtn {
+            color: black;
+            border-radius: 10px;
+            &:hover {
+                cursor: pointer ;
+            }
+            background-color: #a9927d !important;
+        }
+}

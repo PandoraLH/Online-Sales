@@ -1,20 +1,24 @@
+import React, { Suspense } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import './App.scss'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { publicRoutes } from './routes'
+import store from './redux/store'
+import AppRouter from './routers/AppRouter'
+import Header from './components/Header/Header'
 
 function App() {
   return (
-    <Router>
-      <div className = "App">
-        <Routes>
-          {publicRoutes.map((route, index) => {
-            const Page = route.component;
-            return <Route key={index} path={route.path} element={<Page/>} />;
-          })}   
-        </Routes>
-      </div>
-    </Router>
-  );
+    <BrowserRouter>
+      <Provider store={store}>
+        <Suspense fallback="loading">
+          <Header />
+          <div className='tw-mt-32'>
+            <AppRouter />
+          </div>
+        </Suspense>
+      </Provider>
+    </BrowserRouter>
+  )
 }
 
 export default App;
