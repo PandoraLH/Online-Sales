@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import TestComponent1 from './TestComponent1'
+import FoodCard from './FoodCard'
 import '@testing-library/jest-dom'
 
-describe('<TestComponent1 />', () => {
+describe('<FoodCard />', () => {
   it('renders a heading', () => {
-    render(<TestComponent1 />)
+    render(<FoodCard />)
 
     const heading = screen.getByRole('heading', {
       name: /welcome to next\.js!/i,

@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react'
-import TestComponent from './TestComponent'
+import PasswordForm from './PasswordForm'
 import '@testing-library/jest-dom'
 
-describe('<TestComponent />', () => {
+describe('<PasswordForm />', () => {
   it('renders a heading', () => {
-    render(<TestComponent />)
+    render(<PasswordForm />)
 
     const heading = screen.getByRole('heading', {
       name: /welcome to next\.js!/i,

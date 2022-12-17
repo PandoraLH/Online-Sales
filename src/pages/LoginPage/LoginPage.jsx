@@ -1,9 +1,41 @@
-import React from 'react'
-import './LoginPage.scss'
-
+import React from "react";
+import "./LoginPage.scss";
+import LoginFormContainer from "../../containers/LoginForm/LoginForm.container";
+import { useNavigate } from "react-router-dom";
+import { Button } from "antd";
+import BackButton from "../../components/BackButton/BackButton";
+import LoginProviders from "../../components/LoginProviders/LoginProviders";
 
 const LoginPage = (props) => {
-  return <div className="LoginPage">LoginPage</div>
-}
+  const navigate = useNavigate();
 
-export default LoginPage
+  return (
+    <div className="LoginPage tw-flex tw-flex-col tw-items-center">
+      <div
+        style={{ width: "400px" }}
+        className="tw-flex tw-flex-col tw-items-center"
+      >
+        <BackButton />
+        <img
+          src="/assets/logo.png"
+          alt="dogtor"
+          width="100px"
+          height="100px"
+        />
+        <LoginFormContainer />
+        <div className="tw-mt-3">Đăng kí tài khoản, nếu bạn chưa đăng kí!</div>
+        <Button
+          className="default-btn tw-mt-3"
+          style={{ width: "400px" }}
+          onClick={() => navigate("/signup")}
+        >
+          Đăng kí tài khoản
+        </Button>
+        <div className="tw-mt-4">Hoặc đăng nhập với</div>
+        <LoginProviders />
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;
