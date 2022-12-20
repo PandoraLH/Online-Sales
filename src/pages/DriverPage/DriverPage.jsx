@@ -70,7 +70,7 @@ const DriverPage = (props) => {
     ];
 
     return (
-        <div className="Driver">
+        <div className="DriverPage">
             <div className="tw-font-bold tw-text-4xl tw-py-12 tw-flex tw-justify-center">
                 Đơn hàng
             </div>

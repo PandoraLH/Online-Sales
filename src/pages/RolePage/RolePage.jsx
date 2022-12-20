@@ -51,7 +51,7 @@ const RolePage = (props) => {
     )}
     {tab === 2 && (
       navigate('/role/signupuser')
-    )}
+    )} 
   };
   
 
