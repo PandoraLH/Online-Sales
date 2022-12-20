@@ -14,12 +14,12 @@ import {
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC8a4wj13Em3Q_ynoMtO0d9dDIYDg7OEdo",
-  authDomain: "csdlnc-4170d.firebaseapp.com	",
-  projectId: "csdlnc-4170d",
-//   storageBucket: "pharma-track-91d0d.appspot.com",
-//   messagingSenderId: "967740548920",
-//   appId: "1:967740548920:web:9de7f2f28e937dea8d43cd"
+	apiKey: "AIzaSyC8a4wj13Em3Q_ynoMtO0d9dDIYDg7OEdo",
+	authDomain: "csdlnc-4170d.firebaseapp.com",
+	projectId: "csdlnc-4170d",
+	storageBucket: "csdlnc-4170d.appspot.com",
+	messagingSenderId: "414427686063",
+	appId: "1:414427686063:web:05bfb0106e3247ba76e05a",
 };
 
 // Initialize Firebase

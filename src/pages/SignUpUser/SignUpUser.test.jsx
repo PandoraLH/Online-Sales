@@ -1,12 +1,12 @@
 import React from 'react'
-import SignUpPage from './SignUpPage'
+import SignUpUser from './SignUpUser'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 
 const routeComponentPropsMock = {
   history: {
     location: {
-      pathname: '/SignUpPage'
+      pathname: '/SignUpUser'
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   },
@@ -16,9 +16,9 @@ const routeComponentPropsMock = {
   match: {},
 }
 
-describe('<SignUpPage />', () => {
+describe('<SignUpUser />', () => {
   it('renders a heading', () => {
-    render(<SignUpPage {...routeComponentPropsMock}/>)
+    render(<SignUpUser {...routeComponentPropsMock}/>)
 
     const heading = screen.getByRole('heading', {
       name: /welcome to next\.js!/i,

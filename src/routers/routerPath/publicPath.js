@@ -1,8 +1,9 @@
 const PATH = {
     HOME_PAGE_PATH: '/home',
-    LOGIN_PATH: '/login',
-    SIGN_UP_PATH: '/signup',
-    ROLE_PICK_PATH: '/signup/role',
+    ROLE_PICK_PATH: '/role',
+    SIGN_UP_DRIVER: '/role/signupdriver',
+    SIGN_UP_OWNER : '/role/signupowner',
+    SIGN_UP_USER : '/role/signupuser'
   }
   
   export default PATH
