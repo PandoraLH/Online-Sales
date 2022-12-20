@@ -18,12 +18,6 @@ const Header = (props) => {
           >ABC Food</div>
       </div>
       <div className='tw-flex tw-flex-row tw-items-center'>
-        <div className=' tw-text-black tw-font-semibold tw-text-lg'>
-            Đối tác
-        </div>
-        <div className='tw-ml-14 tw-text-black tw-font-semibold tw-text-lg'>
-            Tài xế
-        </div>
         <div className = 'RegBtn tw-px-4 tw-py-2 tw-bg-white tw-font-semibold tw-text-xl tw-ml-16'
           onClick={() => navigate('/role')}>
           Đăng nhập

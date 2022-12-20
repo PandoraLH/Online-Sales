@@ -1,1 +1,9 @@
-.SignUpDriver{}
+.SignUpDriver{
+    background-color: #DFD3C3;
+    .card {
+        width: 500px;
+        height: 700px;
+        background-color: #CBEDD5;
+        border-radius: 20px;
+    }
+}
