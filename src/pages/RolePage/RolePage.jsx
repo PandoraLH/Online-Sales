@@ -31,6 +31,15 @@ const RolePage = (props) => {
   ];
 
   const handleClick = (tab) => {
+    {tab === 0 && (
+      navigate('/owner')
+    )}
+    {tab === 1 && (
+      navigate('/driver')
+    )}
+    {tab === 2 && (
+      navigate('/homepage')
+    )}
   };
 
   const handleSignUpClick = (tab) => {
