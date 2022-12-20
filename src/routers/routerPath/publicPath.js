@@ -3,7 +3,9 @@ const PATH = {
     ROLE_PICK_PATH: '/role',
     SIGN_UP_DRIVER: '/role/signupdriver',
     SIGN_UP_OWNER : '/role/signupowner',
-    SIGN_UP_USER : '/role/signupuser'
+    SIGN_UP_USER : '/role/signupuser',
+    DRIVER_PATH: '/driver',
+    OWNER_PATH: '/owner',
   }
   
   export default PATH

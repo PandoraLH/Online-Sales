@@ -9,7 +9,8 @@ import RolePage from '../pages/RolePage/RolePage'
 import SignUpDriver from '../pages/SignUpDriver/SignUpDriver'
 import SignUpOwner from '../pages/SignUpOwner/SignUpOwner'
 import SignUpUser from '../pages/SignUpUser/SignUpUser'
-
+import DriverPage from '../pages/DriverPage/DriverPage'
+import OwnerPage from '../pages/OwnerPage/OwnerPage'
 
 const AppRouter = () => (
   <Routes>
@@ -23,6 +24,8 @@ const AppRouter = () => (
     <Route exact path={PATH.SIGN_UP_DRIVER} element={<SignUpDriver />} />
     <Route exact path={PATH.SIGN_UP_OWNER} element={<SignUpOwner />} />
     <Route exact path={PATH.SIGN_UP_USER} element={<SignUpUser />} />
+    <Route exact path={PATH.DRIVER_PATH} element={<DriverPage />} />
+    <Route exact path={PATH.OWNER_PATH} element={<OwnerPage />} />
 
         {/* for production deployment */}
     <Route path="/index.html" element={<Navigate to={PATH.HOME_PAGE_PATH} />} />
