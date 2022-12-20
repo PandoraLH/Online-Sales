@@ -1,6 +1,5 @@
 import React from 'react'
 import './HomePage.scss'
-import TestComponent from '../../components/TestComponent/TestComponent'
 import Header from '../../components/Header/Header'
 import HomePageComponent from '../../components/HomePageComponent/HomePageComponent'
 
