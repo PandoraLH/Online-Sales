@@ -3,6 +3,8 @@ import "./OwnerPage.scss";
 import TableComponent from "../../components/TableComponent/TableComponent";
 import { Routes, Route, Link, useParams } from "react-router-dom";
 import Fetch from "../../fetch";
+import InputForm from "../../components/InputForm/InputForm";
+import { Button, notification } from "antd";
 
 const OwnerPage = (props) => {
     return (
@@ -41,37 +43,37 @@ const OwnerPage = (props) => {
 };
 
 const Contract = () => {
-    // const [ContractData, setContractData] = useState([]);
-    // useEffect(() => {
-    //     const abortController = new AbortController();
-    //     const fetchContract = async () => {
-    //         try {
-    //             const response = await Fetch(
-    //                 "GET",
-    //                 "http://localhost:3000/api/v1/HopDong"
-    //             );
-    //             setContractData(response);
-    //         } catch (e) {
-    //             console.error(e);
-    //         }
-    //     };
-    //     fetchContract();
-
-    //     return () => abortController.abort();
-    // }, []);
-
-    // console.log(ContractData);
     const { ownerID } = useParams();
-    console.log(`user id: ${ownerID}`);
 
-    const chiTietHopDong = [
-        {
-            maSoThue: "MST58025",
-            maDoiTac: "DT582181",
-            ngayKyHopDong: "14/12/2020",
-            phiKichHoat: "2000000",
-        },
-    ];
+    const [ContractData, setContractData] = useState([]);
+    useEffect(() => {
+        const abortController = new AbortController();
+        const fetchContract = async () => {
+            try {
+                const response = await Fetch(
+                    "GET",
+                    `http://localhost:3000/api/v1/ChiTietHopDong/MaDT?MaDT=${ownerID}`
+                );
+                setContractData(response[0]);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        fetchContract();
+
+        return () => abortController.abort();
+    }, []);
+
+    console.log(ContractData);
+
+    // const chiTietHopDong = [
+    //     {
+    //         maSoThue: "MST58025",
+    //         maDoiTac: "DT582181",
+    //         ngayKyHopDong: "14/12/2020",
+    //         phiKichHoat: "2000000",
+    //     },
+    // ];
 
     return (
         <div className="contract tw-mt-6">
@@ -79,11 +81,17 @@ const Contract = () => {
                 Hợp đồng
             </div>
 
-            <div>user id: {ownerID}</div>
-            <div>Mã số thuế: {chiTietHopDong[0].maSoThue}</div>
+            <div>Mã đối tác: {ContractData.MaDT}</div>
+            <div>Mã hợp đồng: {ContractData.MaHD}</div>
+            <div>Mã số thuế: {ContractData.MaSoThue}</div>
+            <div>Ngày ký hợp đồng: {ContractData.NgayKyHopDong}</div>
+            <div>Phí kích hoạt: {ContractData.PhiKichHoat}</div>
+            <div>Số năm hoạt động: {ContractData.SoNamHoatDong}</div>
+
+            {/* <div>Mã số thuế: {chiTietHopDong[0].maSoThue}</div>
             <div>Mã đối tác: {chiTietHopDong[0].maDoiTac}</div>
             <div>Ngày ký hợp đồng: {chiTietHopDong[0].ngayKyHopDong}</div>
-            <div>Phí kích hoạt: {chiTietHopDong[0].phiKichHoat}</div>
+            <div>Phí kích hoạt: {chiTietHopDong[0].phiKichHoat}</div> */}
         </div>
     );
 };
@@ -100,76 +108,25 @@ const Menu = () => {
             dataIndex: "DonGia",
         },
         {
-            title: "Số lượng",
+            title: "Số lượng đã bán",
             dataIndex: "SoLuongDaBan",
         },
-    ];
-
-    const data = [
         {
-            key: "1",
-            tenmon: "Jackie Beazley",
-            dongia: 35000,
-            soluong: 5,
+            title: "Số like",
+            dataIndex: "SoLike",
         },
         {
-            key: "2",
-            tenmon: "Boycie Wigan",
-            dongia: 45000,
-            soluong: 5,
+            title: "Số dislike",
+            dataIndex: "SoDislike",
         },
         {
-            key: "3",
-            tenmon: "Doyle Alvarado",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "4",
-            tenmon: "Hollie Brahmer",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "5",
-            tenmon: "Wat Laytham",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "6",
-            tenmon: "Pizza hải sản",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "7",
-            tenmon: "Jocko Messer",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "8",
-            tenmon: "Burtie Ruusa",
-            dongia: 45000,
-            soluong: 5,
-        },
-        {
-            key: "9",
-            tenmon: "Bianka Wagen",
-            dongia: 30000,
-            soluong: 5,
-        },
-        {
-            key: "10",
-            tenmon: "Blondell Batters",
-            dongia: 50000,
-            soluong: 5,
+            title: "Tình trạng món",
+            dataIndex: "TinhTrangMon",
         },
     ];
 
     const { ownerID } = useParams();
-    console.log(`user id: ${ownerID}`);
+    // console.log(`user id: ${ownerID}`);
 
     const [MenuData, setMenuData] = useState([]);
     useEffect(() => {
@@ -192,11 +149,10 @@ const Menu = () => {
 
         return () => abortController.abort();
     }, [ownerID]);
-
-    console.log(MenuData);
+    // console.log(MenuData);
 
     return (
-        <div className="tw-px-60 tw-mt-6">
+        <div className="tw-px-52 tw-mt-6">
             <div className="tw-font-bold tw-text-3xl tw-inline-block tw-mb-4">
                 Thực đơn
             </div>
@@ -272,20 +228,117 @@ const Order = () => {
             makh: "KH10071",
         },
     ];
+    const { ownerID } = useParams();
+    // console.log(`user id: ${ownerID}`);
+
+    const [OrderData, setOrderData] = useState([]);
+    useEffect(() => {
+        const abortController = new AbortController();
+        const fetchOrder = async () => {
+            try {
+                const response = await Fetch(
+                    "POST",
+                    "http://localhost:3000/api/v1/DoiTac/XemDonHang",
+                    {
+                        MaDT: ownerID,
+                    }
+                );
+                setOrderData(response);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        fetchOrder();
+
+        return () => abortController.abort();
+    }, [ownerID]);
+    console.log(OrderData);
 
     return (
-        <div className="tw-px-20 tw-mt-6">
+        <div className="tw-px-52 tw-mt-6">
             <div className="tw-font-bold tw-text-3xl tw-inline-block tw-mb-4">
                 Đơn hàng
             </div>
 
-            <TableComponent columns={columns} data={data} />
+            <TableComponent columns={columns} data={OrderData[0]} />
         </div>
     );
 };
 
 const Edit = () => {
-    return <h1>Sửa thông tin cửa hàng</h1>;
+    const [TenQuanMoi, setTenQuanMoi] = useState("");
+    console.log(TenQuanMoi);
+    const { ownerID } = useParams();
+
+    return (
+        <div className="tw-px-52 tw-mt-6 tw-text-center">
+            <div className="tw-font-bold tw-text-3xl tw-inline-block tw-mb-4">
+                Sửa thông tin cửa hàng
+            </div>
+
+            <InputForm
+                title="Nhập tên quán mới"
+                placeholder="Tên quán mới"
+                setInput={setTenQuanMoi}
+            />
+            <div className="RoleButton tw-flex tw-flex-row tw-mt-5 tw-justify-center tw-space-x-40 ">
+                <div>
+                    {/* <Button
+                        className="button2"
+                        type="primary"
+                        shape="round"
+                        style={{
+                            backgroundColor: "blue",
+                            width: "150px",
+                            height: "40px",
+                        }}
+                        // onClick={() => handleClick(tab, TenQuanMoi)}
+                    >
+                        Cập nhật
+                    </Button> */}
+                    <Button
+                        className="button2"
+                        type="primary"
+                        shape="round"
+                        style={{
+                            backgroundColor: "blue",
+                            width: "150px",
+                            height: "40px",
+                        }}
+                        onClick={async () => {
+                            try {
+                                const response = await Fetch(
+                                    "PUT",
+                                    "http://localhost:3000/api/v1/DoiTac",
+                                    {
+                                        TenQuan: TenQuanMoi,
+                                        MaDT: ownerID,
+                                    }
+                                );
+                                if (response["result"] === "successfully") {
+                                    notification.success({
+                                        message: "Thành công",
+                                        description: `Sửa tên quán thành công`,
+                                        placement: "bottomRight",
+                                    });
+                                    return true;
+                                }
+                            } catch (e) {
+                                console.error(e);
+                            }
+                            notification.error({
+                                message: "Thất bại",
+                                description: `Mã đối tác không tồn tại`,
+                                placement: "bottomRight",
+                            });
+                        }}
+                    >
+                        TIẾP TỤC
+                    </Button>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default OwnerPage;
