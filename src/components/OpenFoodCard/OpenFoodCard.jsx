@@ -4,6 +4,9 @@ import { Table, notification, Popconfirm, Spin } from "antd";
 import Fetch from "../../fetch";
 
 const OpenFoodCard = ({ MaDT, userId }) => {
+
+  console.log(MaDT)
+  console.log(Object.values(userId)[0])
   const [ThucDon, setThucDon] = useState([]);
 
   useEffect(() => {
@@ -64,6 +67,35 @@ const OpenFoodCard = ({ MaDT, userId }) => {
       render: (_, record) => (
         <Popconfirm
           title="Bạn có muốn chọn món ăn này"
+          onConfirm={async () => {
+            try {
+              const response = await Fetch(
+                "POST",
+                "http://localhost:3000/api/v1/KhachHang/dathang",
+                {
+                  MaKH: Object.values(userId)[0],
+                  DiaChiDH: "Hai Ba Trung Quan",
+                  MaDT: MaDT,
+                  TenMon1: record.TenMon,
+                }
+              );
+              if (response["result"] === "thanh cong") {
+                notification.success({
+                  message: "Thành công",
+                  description: `Thêm Món thành công`,
+                  placement: "bottomRight",
+                });
+                return true;
+              }
+            } catch (e) {
+              console.error(e);
+            }
+            notification.error({
+              message: "Thất bại",
+              description: `Thêm Món Thất Bại`,
+              placement: "bottomRight",
+            });
+          }}
           okText="Có"
           cancelText="Không"
         >

@@ -22,10 +22,6 @@ const TableComponent = ({ columns, data }) => {
     return (
         <div className="TableComponent">
             <Table
-                rowSelection={{
-                    type: selectionType,
-                    ...rowSelection,
-                }}
                 columns={columns}
                 dataSource={data}
                 pagination={<Pagination defaultCurrent={1} defaultPageSize={5} />}

@@ -17,12 +17,6 @@ const Header = (props) => {
           onClick={() => navigate("/home")}
           >ABC Food</div>
       </div>
-      <div className='tw-flex tw-flex-row tw-items-center'>
-        <div className = 'RegBtn tw-px-4 tw-py-2 tw-bg-white tw-font-semibold tw-text-xl tw-ml-16'
-          onClick={() => navigate('/role')}>
-          Đăng nhập
-        </div>
-      </div>
     </div>)
 }
 

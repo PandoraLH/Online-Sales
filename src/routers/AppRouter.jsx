@@ -14,8 +14,8 @@ import OwnerPage from '../pages/OwnerPage/OwnerPage'
 
 const AppRouter = () => (
   <Routes>
-    <Route path='/:page' element={<HomePage />}></Route>
-    <Route exact path='/' element={<HomePage />}></Route>
+    <Route path='/:page' element={<RolePage />}></Route>
+    <Route exact path='/' element={<RolePage />}></Route>
     
     <Route exact path="*" element={<ErrorPage code={404} />} />
     <Route exact path={PATH.HOME_PAGE_PATH_DYNAMIC} element={<HomePage />} />
