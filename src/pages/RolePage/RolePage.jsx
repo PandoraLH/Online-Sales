@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import { Button, notification } from "antd";
 import RoleHeader from "../../components/RoleHeader/RoleHeader";
 import RoleCardList from "../../components/RoleCardList/RoleCardList";
@@ -38,7 +38,7 @@ const RolePage = (props) => {
       navigate('/driver')
     )}
     {tab === 2 && (
-      navigate('/homepage')
+      navigate(`/home/${IDInput}`)
     )}
   };
 
@@ -53,6 +53,7 @@ const RolePage = (props) => {
       navigate('/role/signupuser')
     )} 
   };
+  
   
 
   return (

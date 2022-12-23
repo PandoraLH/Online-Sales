@@ -18,7 +18,7 @@ const AppRouter = () => (
     <Route exact path='/' element={<HomePage />}></Route>
     
     <Route exact path="*" element={<ErrorPage code={404} />} />
-    <Route exact path={PATH.HOME_PAGE_PATH} element={<HomePage />} />
+    <Route exact path={PATH.HOME_PAGE_PATH_DYNAMIC} element={<HomePage />} />
 
     <Route exact path={PATH.ROLE_PICK_PATH} element={<RolePage />} />
     <Route exact path={PATH.SIGN_UP_DRIVER} element={<SignUpDriver />} />
@@ -27,7 +27,7 @@ const AppRouter = () => (
     <Route exact path={PATH.DRIVER_PATH} element={<DriverPage />} />
     <Route exact path={PATH.OWNER_PATH} element={<OwnerPage />} />
 
-        {/* for production deployment */}
+          {/* for production deployment */}
     <Route path="/index.html" element={<Navigate to={PATH.HOME_PAGE_PATH} />} />
   </Routes>
 )

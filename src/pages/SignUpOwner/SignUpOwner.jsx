@@ -14,6 +14,7 @@ const SignUpOwner = (props) => {
           Nhập thông tin 
       </div>
       <div className = 'input tw-flex tw-flex-col tw-mx-auto tw-text-3xl'>
+        <InputForm title = "Nhập mã Đối tác" placeholder = 'Nhập mã Đối tác'/>
         <InputForm title = "Nhập Email" placeholder = 'Nhập Email'/>
         <InputForm title = "Nhập Tên Quán/ Nhà Hàng" placeholder = 'Nhập Tên Quán/ Nhà Hàng'/>
         <InputForm title = "Người Đại Diện" placeholder = 'Người Đại Diện'/>
@@ -23,6 +24,8 @@ const SignUpOwner = (props) => {
         <InputForm title = "Loại Thực Phẩm" placeholder= 'Loại Thực Phẩm'/>
         <InputForm title = "Số Lượng Chi Nhánh" placeholder= 'Số Lượng Chi Nhánh'/>
         <InputForm title = "Số lượng đơn hàng mỗi ngày" placeholder= 'Số lượng đơn hàng mỗi ngày'/>
+        <InputForm title = "Tài khoản ngân hàng" placeholder= ' NhậpTài khoản ngân hàng'/>
+
       </div>
     </div>
     <div className="RoleButton tw-flex tw-flex-row tw-py-10 tw-justify-center tw-space-x-40 ">
