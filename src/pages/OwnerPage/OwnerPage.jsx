@@ -66,15 +66,6 @@ const Contract = () => {
 
     console.log(ContractData);
 
-    // const chiTietHopDong = [
-    //     {
-    //         maSoThue: "MST58025",
-    //         maDoiTac: "DT582181",
-    //         ngayKyHopDong: "14/12/2020",
-    //         phiKichHoat: "2000000",
-    //     },
-    // ];
-
     return (
         <div className="contract tw-mt-6">
             <div className="tw-font-bold tw-text-3xl tw-inline-block tw-mb-4">
@@ -87,11 +78,6 @@ const Contract = () => {
             <div>Ngày ký hợp đồng: {ContractData.NgayKyHopDong}</div>
             <div>Phí kích hoạt: {ContractData.PhiKichHoat}</div>
             <div>Số năm hoạt động: {ContractData.SoNamHoatDong}</div>
-
-            {/* <div>Mã số thuế: {chiTietHopDong[0].maSoThue}</div>
-            <div>Mã đối tác: {chiTietHopDong[0].maDoiTac}</div>
-            <div>Ngày ký hợp đồng: {chiTietHopDong[0].ngayKyHopDong}</div>
-            <div>Phí kích hoạt: {chiTietHopDong[0].phiKichHoat}</div> */}
         </div>
     );
 };
@@ -126,7 +112,6 @@ const Menu = () => {
     ];
 
     const { ownerID } = useParams();
-    // console.log(`user id: ${ownerID}`);
 
     const [MenuData, setMenuData] = useState([]);
     useEffect(() => {
@@ -149,7 +134,6 @@ const Menu = () => {
 
         return () => abortController.abort();
     }, [ownerID]);
-    // console.log(MenuData);
 
     return (
         <div className="tw-px-52 tw-mt-6">
@@ -165,25 +149,33 @@ const Menu = () => {
 const Order = () => {
     const columns = [
         {
-            title: "STT",
-            dataIndex: "stt",
-        },
-        {
             title: "Mã đơn hàng",
-            dataIndex: "madonhang",
+            dataIndex: "MaDH",
             render: (text) => <a>{text}</a>,
         },
         {
-            title: "Tổng tiền",
-            dataIndex: "tongtien",
+            title: "Mã khách hàng",
+            dataIndex: "MaKH",
         },
         {
             title: "Địa chỉ",
-            dataIndex: "diachi",
+            dataIndex: "DiaChiDH",
         },
         {
-            title: "Mã khách hàng",
-            dataIndex: "makh",
+            title: "Tổng tiền các món",
+            dataIndex: "TongTienCacMon",
+        },
+        {
+            title: "Tổng tiền đơn hàng",
+            dataIndex: "TongTienDH",
+        },
+        {
+            title: "Thời gian đặt hàng",
+            dataIndex: "ThoiGianDatHang",
+        },
+        {
+            title: "Trạng thái đơn hàng",
+            dataIndex: "TrangThaiDH",
         },
     ];
     const data = [
@@ -229,7 +221,6 @@ const Order = () => {
         },
     ];
     const { ownerID } = useParams();
-    // console.log(`user id: ${ownerID}`);
 
     const [OrderData, setOrderData] = useState([]);
     useEffect(() => {
@@ -283,19 +274,6 @@ const Edit = () => {
             />
             <div className="RoleButton tw-flex tw-flex-row tw-mt-5 tw-justify-center tw-space-x-40 ">
                 <div>
-                    {/* <Button
-                        className="button2"
-                        type="primary"
-                        shape="round"
-                        style={{
-                            backgroundColor: "blue",
-                            width: "150px",
-                            height: "40px",
-                        }}
-                        // onClick={() => handleClick(tab, TenQuanMoi)}
-                    >
-                        Cập nhật
-                    </Button> */}
                     <Button
                         className="button2"
                         type="primary"
