@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./TableComponent.scss";
 import { Table } from "antd";
+import { Pagination } from 'antd';
 
 const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {
@@ -16,7 +17,7 @@ const rowSelection = {
     }),
 };
 
-const TableComponent = ({columns, data}) => {
+const TableComponent = ({ columns, data }) => {
     const [selectionType, setSelectionType] = useState("checkbox");
     return (
         <div className="TableComponent">
@@ -27,6 +28,7 @@ const TableComponent = ({columns, data}) => {
                 }}
                 columns={columns}
                 dataSource={data}
+                pagination={<Pagination defaultCurrent={1} defaultPageSize={5} />}
             />
         </div>
     );
