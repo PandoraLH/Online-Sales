@@ -1,49 +1,79 @@
 .OwnerPage {
-    padding-top: 0.5rem;
-    background-color: #DFD3C3;
+    // padding-top: 0.5rem;
+    background-color: #dfd3c3;
     height: 100vh;
     overflow: auto;
-    .Tabs {
-        width: 80%;
-        height: auto;
-        min-height: 400px;
-        background: #053742;
-        margin: 3.5rem auto 1.5rem;
-        padding: 2rem 1rem;
-        color: #e8f0f2;
+    //     .Tabs {
+    //         width: 80%;
+    //         height: auto;
+    //         min-height: 400px;
+    //         background: #053742;
+    //         margin: 3.5rem auto 1.5rem;
+    //         padding: 2rem 1rem;
+    //         color: #e8f0f2;
+    //         font-size: 1.25rem;
+    //     }
+
+    //     .react-tabs__tab-list {
+    //         width: 60%;
+    //         margin: 0 auto 2rem;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: space-between;
+    //         border: 1px solid #39a2db;
+    //         padding-left: 0px;
+    //         font-weight: bold;
+    //     }
+
+    //     .react-tabs__tab {
+    //         width: 50%;
+    //         padding: 1rem;
+    //         list-style: none;
+    //         text-align: center;
+    //         cursor: pointer;
+    //         transition: all 0.5s;
+    //     }
+
+    //     .react-tabs__tab--selected {
+    //         background: #39a2db;
+    //     }
+
+    //     .react-tabs__tab:hover {
+    //         background: rgba(50, 224, 196, 0.15);
+    //     }
+
+    //     .react-tabs__tab-panel--selected {
+    //         display: block;
+    //         text-align: center;
+    //     }
+
+    ul {
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+
+        .text-link {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    li .text-link:hover {
+        background-color: #111;
+    }
+    li .text-link:checked {
+        background-color: #04aa6d;
+    }
+
+    .contract {
+        text-align: center;
         font-size: 1.25rem;
-    }
-
-    .react-tabs__tab-list {
-        width: 60%;
-        margin: 0 auto 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid #39a2db;
-        padding-left: 0px;
-        font-weight: bold;
-    }
-
-    .react-tabs__tab {
-        width: 50%;
-        padding: 1rem;
-        list-style: none;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.5s;
-    }
-
-    .react-tabs__tab--selected {
-        background: #39a2db;
-    }
-
-    .react-tabs__tab:hover {
-        background: rgba(50, 224, 196, 0.15);
-    }
-
-    .react-tabs__tab-panel--selected {
-        display: block;
-        text-align: center;
     }
 }

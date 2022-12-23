@@ -7,6 +7,7 @@ const PATH = {
     SIGN_UP_USER : '/role/signupuser',
     DRIVER_PATH: '/driver',
     OWNER_PATH: '/owner',
+    OWNER_DYNAMIC_PATH: '/owner/:ownerID',
   }
   
   export default PATH

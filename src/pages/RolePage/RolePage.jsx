@@ -7,11 +7,11 @@ import "./RolePage.scss";
 import InputForm from "../../components/InputForm/InputForm";
 import BackButton from "../../components/BackButton/BackButton";
 
-
 const RolePage = (props) => {
   const navigate = useNavigate();
   const [tab, setTab] = useState(-1);
   const [IDInput, setIDInput] = useState("");
+  console.log(IDInput);
   const RoleData = [
     {
       name: "owener",
@@ -30,31 +30,29 @@ const RolePage = (props) => {
     },
   ];
 
-  const handleClick = (tab) => {
-    {tab === 0 && (
-      navigate('/owner')
-    )}
-    {tab === 1 && (
-      navigate('/driver')
-    )}
-    {tab === 2 && (
-      navigate(`/home/${IDInput}`)
-    )}
+  const handleClick = (tab, IDInput) => {
+    {
+      tab === 0 && navigate(`/owner/${IDInput}`);
+    }
+    {
+      tab === 1 && navigate("/driver");
+    }
+    {
+      tab === 2 && navigate(`/home/${IDInput}`);
+    }
   };
 
   const handleSignUpClick = (tab) => {
-    {tab === 0 && (
-      navigate('/role/signupowner')
-    )}
-    {tab === 1 && (
-      navigate('/role/signupdriver')
-    )}
-    {tab === 2 && (
-      navigate('/role/signupuser')
-    )} 
+    {
+      tab === 0 && navigate("/role/signupowner");
+    }
+    {
+      tab === 1 && navigate("/role/signupdriver");
+    }
+    {
+      tab === 2 && navigate("/role/signupuser");
+    }
   };
-  
-  
 
   return (
     <div className="RolePage">
@@ -89,7 +87,11 @@ const RolePage = (props) => {
             className="button1"
             type="primary"
             shape="round"
-            style={{ width: "150px", height: "40px", 'background-color': 'red' }}
+            style={{
+              width: "150px",
+              height: "40px",
+              "background-color": "red",
+            }}
             onClick={() => navigate(-1)}
           >
             QUAY LẠI
@@ -101,22 +103,36 @@ const RolePage = (props) => {
             className="button2"
             type="primary"
             shape="round"
-            style={{ backgroundColor: "blue", width: "150px", height: "40px" }}
-            onClick={() => handleClick(tab)}
+            style={{
+              backgroundColor: "blue",
+              width: "150px",
+              height: "40px",
+            }}
+            onClick={() => handleClick(tab, IDInput)}
           >
             TIẾP TỤC
           </Button>
         </div>
       </div>
 
-      <div className = 'tw-flex tw-justify-center tw-text-xl tw-py-3'> Chưa có tài khoản ? </div>
-      <div className = 'tw-flex tw-justify-center'>
+      <div className="tw-flex tw-justify-center tw-text-xl tw-py-3">
+        {" "}
+        Chưa có tài khoản ?{" "}
+      </div>
+      <div className="tw-flex tw-justify-center">
         <Button
           type="primary"
           shape="round"
-          style={{ backgroundColor: "blue", width: "150px", height: "40px" }}
+          style={{
+            backgroundColor: "blue",
+            width: "150px",
+            height: "40px",
+          }}
           onClick={() => handleSignUpClick(tab)}
-          > ĐĂNG KÝ </Button>
+        >
+          {" "}
+          ĐĂNG KÝ{" "}
+        </Button>
       </div>
     </div>
   );

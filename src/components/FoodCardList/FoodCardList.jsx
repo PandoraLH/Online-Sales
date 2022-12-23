@@ -18,12 +18,6 @@ const FoodCardList = ({ DTData, MaDT, setMaDT }) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  
-    // const [currentDT, setcurrentDT] = useState(-1)
-    // setcurrentDT( DTData.find((item) => {
-    //   return item.MaDT === MaDT;
-    // })
-    // )
 
   return <div className="FoodCardList tw-py-10 tw-mx-auto tw-flex tw-flex-wrap tw-max-w-4xl">
     <List
