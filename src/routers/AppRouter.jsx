@@ -24,7 +24,9 @@ const AppRouter = () => (
     <Route exact path={PATH.SIGN_UP_DRIVER} element={<SignUpDriver />} />
     <Route exact path={PATH.SIGN_UP_OWNER} element={<SignUpOwner />} />
     <Route exact path={PATH.SIGN_UP_USER} element={<SignUpUser />} />
+    
     <Route exact path={PATH.DRIVER_PATH} element={<DriverPage />} />
+    <Route exact path={PATH.DRIVER_PATH_DYNAMIC} element={<DriverPage />} />
 
           {/* for production deployment */}
     <Route exact path={`${PATH.OWNER_DYNAMIC_PATH}/*`} element={<OwnerPage />} />

@@ -9,7 +9,6 @@ const HomePageComponent = (props) => {
   const [MaDT, setMaDT] = useState(-1);
 
   const userId = useParams();
-  console.log(userId);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -31,7 +30,7 @@ const HomePageComponent = (props) => {
 
   return (
     <div className="HomePageComponent">
-      <FoodCardList DTData={DTData[0]} MaDT={MaDT} setMaDT={setMaDT} />
+      <FoodCardList DTData={DTData[0]} MaDT={MaDT} setMaDT={setMaDT} userId ={userId} />
     </div>
   );
 };

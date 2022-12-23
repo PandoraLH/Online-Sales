@@ -3,7 +3,7 @@ import "./OpenFoodCard.scss";
 import { Table, notification, Popconfirm, Spin } from "antd";
 import Fetch from "../../fetch";
 
-const OpenFoodCard = ({ MaDT }) => {
+const OpenFoodCard = ({ MaDT, userId }) => {
   const [ThucDon, setThucDon] = useState([]);
 
   useEffect(() => {

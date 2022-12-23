@@ -7,7 +7,7 @@ import { Modal } from "antd";
 import OpenFoodCard from '../OpenFoodCard/OpenFoodCard';
 
 
-const FoodCardList = ({ DTData, MaDT, setMaDT }) => {
+const FoodCardList = ({ DTData, MaDT, setMaDT, userId }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
     setIsModalOpen(true);
@@ -43,7 +43,7 @@ const FoodCardList = ({ DTData, MaDT, setMaDT }) => {
                 width={1000}
                 footer={null}
             >
-              <OpenFoodCard MaDT = { MaDT } />
+              <OpenFoodCard MaDT = { MaDT } userId = {userId} />
           </Modal>
         </List.Item>
       )}

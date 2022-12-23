@@ -11,7 +11,6 @@ const RolePage = (props) => {
   const navigate = useNavigate();
   const [tab, setTab] = useState(-1);
   const [IDInput, setIDInput] = useState("");
-  console.log(IDInput);
   const RoleData = [
     {
       name: "owener",
@@ -35,7 +34,7 @@ const RolePage = (props) => {
       tab === 0 && navigate(`/owner/${IDInput}`);
     }
     {
-      tab === 1 && navigate("/driver");
+      tab === 1 && navigate(`/driver/${IDInput}`);
     }
     {
       tab === 2 && navigate(`/home/${IDInput}`);
