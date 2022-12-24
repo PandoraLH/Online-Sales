@@ -3,6 +3,8 @@ import "./DriverPage.scss";
 import Fetch from "../../fetch";
 import { Table, notification, Popconfirm, Spin } from "antd";
 import { useParams } from "react-router-dom";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import TableComponent from "../../components/TableComponent/TableComponent";
 
 const DriverPage = (props) => {
     const { driverId } = useParams();
@@ -25,7 +27,7 @@ const DriverPage = (props) => {
 
         return () => abortController.abort();
     }, []);
-    console.log(driverId);
+
     const columns = [
         {
             title: "STT",
@@ -96,19 +98,92 @@ const DriverPage = (props) => {
         },
     ];
 
+    const column_cart = [
+        {
+            title: "Mã đơn hàng",
+            dataIndex: "MaDH",
+        },
+        {
+            title: "Mã khách hàng",
+            dataIndex: "MaKH",
+        },
+        {
+            title: "Mã đối tác",
+            dataIndex: "MaDT",
+        },
+        {
+            title: "Địa chỉ",
+            dataIndex: "DiaChiDH",
+        },
+        {
+            title: "Thời gian đặt hàng",
+            dataIndex: "ThoiGianDatHang",
+        },
+        {
+            title: "Tổng tiền các món",
+            dataIndex: "TongTienCacMon",
+        },
+        {
+            title: "Tổng tiền đơn hàng",
+            dataIndex: "TongTienDH",
+        },
+        {
+            title: "Trạng thái đơn hàng",
+            dataIndex: "TrangThaiDH",
+        },
+    ];
+
+    const [DriverCart, setDriverCart] = useState([]);
+    useEffect(() => {
+        const abortController = new AbortController();
+        const fetchUser = async () => {
+            try {
+                const response = await Fetch(
+                    "GET",
+                    `http://localhost:3000/api/v1/TaiXe/getDonDatHangOfTaiXe?MaTX=${driverId}`
+                );
+                setDriverCart(response);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+        fetchUser();
+
+        return () => abortController.abort();
+    }, []);
+console.log(DriverCart);
+
     return (
         <div className="DriverPage">
-            <div className="tw-font-bold tw-text-4xl tw-py-12 tw-flex tw-justify-center">
-                Đơn hàng
-            </div>
-            <div className="tw-px-20">
-                <Table
-                    className="Booking"
-                    columns={columns}
-                    dataSource={DriverData}
-                    pagination={{ pageSize: 6 }}
-                />
-            </div>
+            <Tabs className="Tabs tw-pt-2">
+                <TabList className="Option tw-flex tw-max-w-3xl tw-mx-auto tw-mt-10 tw-text-2xl tw-cursor-pointer tw-select-none">
+                    <Tab className="Option_1 tw-flex-1 tw-text-center tw-py-5 tw-rounded-none	">
+                        Đơn hàng có sẵn
+                    </Tab>
+                    <Tab className="Option_2 tw-flex-1 tw-text-center tw-py-5 tw-rounded-none	">
+                        Đơn hàng bạn đã nhận
+                    </Tab>
+                </TabList>
+
+                <TabPanel>
+                    <div className="tw-flex tw-flex-col tw-items-center tw-pt-8">
+                        <Table
+                            columns={columns}
+                            dataSource={DriverData}
+                            pagination={{ pageSize: 6 }}
+                        />
+                    </div>
+                </TabPanel>
+
+                <TabPanel>
+                    <div className="tw-flex tw-flex-col tw-items-center tw-pt-8">
+                        <TableComponent
+                            columns={column_cart}
+                            data={DriverCart}
+                        />
+                    </div>
+                </TabPanel>
+            </Tabs>
         </div>
     );
 };

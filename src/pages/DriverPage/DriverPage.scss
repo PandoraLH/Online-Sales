@@ -1,5 +1,27 @@
-.DriverPage{
-    background-color: #DFD3C3;
+.DriverPage {
+    background-color: #dfd3c3;
     height: 100vh;
     overflow: auto;
+
+    .Tabs {
+        .Option {
+            .Option_1 {
+                background-color: #dfd3c3;
+                color: rgba(0, 0, 0, 0.6);
+                border: 2px solid rgba(0, 0, 0, 0.6);
+                border-radius: 40px;
+            }
+            .Option_2 {
+                background-color: #dfd3c3;
+                color: rgba(0, 0, 0, 0.6);
+                border-top: 2px solid rgba(0, 0, 0, 0.6);
+                border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+                border-right: 2px solid rgba(0, 0, 0, 0.6);
+            }
+            .react-tabs__tab--selected {
+                background: #eb455f;
+                color: white;
+            }
+        }
+    }
 }

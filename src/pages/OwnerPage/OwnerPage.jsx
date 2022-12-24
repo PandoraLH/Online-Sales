@@ -64,8 +64,6 @@ const Contract = () => {
         return () => abortController.abort();
     }, []);
 
-    console.log(ContractData);
-
     return (
         <div className="contract tw-mt-6">
             <div className="tw-font-bold tw-text-3xl tw-inline-block tw-mb-4">
@@ -87,7 +85,6 @@ const Menu = () => {
         {
             title: "Tên món",
             dataIndex: "TenMon",
-            render: (text) => <a>{text}</a>,
         },
         {
             title: "Đơn giá",
@@ -151,15 +148,14 @@ const Order = () => {
         {
             title: "Mã đơn hàng",
             dataIndex: "MaDH",
-            render: (text) => <a>{text}</a>,
         },
         {
             title: "Mã khách hàng",
             dataIndex: "MaKH",
         },
         {
-            title: "Địa chỉ",
-            dataIndex: "DiaChiDH",
+            title: "Mã tài xế",
+            dataIndex: "MaTX",
         },
         {
             title: "Tổng tiền các món",
@@ -176,48 +172,6 @@ const Order = () => {
         {
             title: "Trạng thái đơn hàng",
             dataIndex: "TrangThaiDH",
-        },
-    ];
-    const data = [
-        {
-            key: "1",
-            stt: 1,
-            madonhang: "MDH10001",
-            tongtien: 463032,
-            diachi: "479 Vernon Road",
-            makh: "KH10014",
-        },
-        {
-            key: "2",
-            stt: 2,
-            madonhang: "MDH10006",
-            tongtien: 1134156,
-            diachi: "850 Main Circle",
-            makh: "KH10028",
-        },
-        {
-            key: "3",
-            stt: 3,
-            madonhang: "MDH10015",
-            tongtien: 446559,
-            diachi: "17 Carpenter Hill",
-            makh: "KH10066",
-        },
-        {
-            key: "4",
-            stt: 4,
-            madonhang: "MDH10037",
-            tongtien: 168506,
-            diachi: "57426 Main Avenue",
-            makh: "KH10068",
-        },
-        {
-            key: "5",
-            stt: 5,
-            madonhang: "MDH10042",
-            tongtien: 539528,
-            diachi: "46 Springview Drive",
-            makh: "KH10071",
         },
     ];
     const { ownerID } = useParams();
@@ -243,7 +197,6 @@ const Order = () => {
 
         return () => abortController.abort();
     }, [ownerID]);
-    console.log(OrderData);
 
     return (
         <div className="tw-px-52 tw-mt-6">
